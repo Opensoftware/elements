@@ -1,0 +1,8 @@
+/* social */
+
+/* Since IE 8, we can remove for list list-style property. */
+
+.main-menu {
+  list-style: none;
+}
+

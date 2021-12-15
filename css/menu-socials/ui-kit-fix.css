@@ -1,0 +1,23 @@
+@media (max-width: 904px) {
+  .header__container {
+    min-height: 56px;
+  }
+
+  .js .burger {
+    min-height: 40px;
+  }
+
+  .js .header__social-links {
+    top: 18px
+  }
+
+  .js .header__logo  {
+    margin-top: 10px;
+  }
+}
+
+@supports (display: flex) {
+  .js .header__logo  {
+    margin-top: 0;
+  }
+}

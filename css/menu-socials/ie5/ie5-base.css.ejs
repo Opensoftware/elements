@@ -1,0 +1,87 @@
+.header {
+  border-bottom: 1px solid #000000;
+}
+
+/* containers */
+
+.header__container {
+  padding: <%= responsive.GAP %>px; /* must be equal to .main-menu__link padding */
+}
+
+/* logo */
+
+.header__logo {
+  position: absolute;
+  top: 11px; /* .header__container padding not calculated */
+  left: <%= responsive.GAP %>px;
+}
+
+.logo a {
+  display: block;
+  padding: <%= responsive.GAP %>px;
+}
+
+.logo a img {
+  display: block; /* normalize geometry img inside a */
+}
+
+/* main-menu */
+
+.header__main-menu-container {
+  margin: 0 72px 0 110px; /* spaces for absolutely positioned logo/socials. */
+}
+
+.main-menu {
+  margin: 0;
+  padding: <%= responsive.GAP %>px 0;
+}
+
+.main-menu__item {
+  padding: 0 <%= responsive.GAP %>px;
+  display: block;
+  float: left;
+}
+
+.main-menu__link {
+  white-space: nowrap;
+}
+
+/* social */
+
+.header__social-links { /* TODO maybe rename to social links */
+  position: absolute;
+  top: 11px;
+  right: <%= responsive.GAP %>px; 
+  padding: 0px;
+}
+
+.main-menu:before,
+.main-menu:after,
+.header__social-links:before,
+.header__social-links:after { 
+  content: "";
+  display: table; 
+}
+
+.header__social-links:after,
+.main-menu:after {
+  clear: both; 
+}
+
+.header__social-links,
+.main-menu { 
+  zoom: 1; 
+}
+
+.social-links__item {
+  float: left;
+}
+
+.social-links__link {
+  display: block;
+  padding: <%= responsive.GAP %>px;
+}
+
+.social-links__link img {
+    display: block;
+}

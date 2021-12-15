@@ -1,0 +1,49 @@
+@supports (display: flex) { /* https://developer.mozilla.org/en-US/docs/Web/CSS/@supports */
+  .main-menu::before,
+  .main-menu::after,
+  .header__container::before,
+  .header__container::after {
+    content: none;
+  }
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__main-menu-burger {
+    display: none;
+  }
+
+  .header__main-menu-container {
+    margin: 0;
+  }
+
+  .header__logo {
+    position: static;
+  }
+
+  .main-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: <%= menu.breakpoint - 1 %>px) {
+    .header__container {
+      flex-wrap: wrap; /* Let's allow the transfer of elements so that on a small screen they become one under the other. */
+    }
+    
+    .js .header__main-menu-burger {
+      position: static;
+    }
+
+    .header__main-menu-container {
+      width: 100%; /* The menu becomes a dropdown and is transferred to a new row. Should fill the entire screen width. */
+    }
+
+    .main-menu {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/container.css">
+    <link rel="stylesheet" href="/css/responsive-blocks.css">
+    <link rel="stylesheet" href="/css/buffer.css">
+    <link rel="stylesheet" href="/css/spacers.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/design-system/typography-block.css">
+  </head>
+  <body class="typography design-system">
+    {% container responsive %}
+      {% for el, medias in typography %}
+      {% if (el !== 'body') %}
+      {% buffer responsive %}
+      <div class="typography-block">
+        <div class="typography-block__element">
+          {% set regExp = r/[\s.,%]/g %}
+          <div class="{{ el.replace(regExp, '') }}">{{ el }}</div>
+        </div>
+        <div class="typography-block__definitions responsive-blocks-container">
+          <div class="typography-block__definitions-item responsive-blocks-container">
+              <p>Typeface: </p>
+              <p>{{ medias.default['font-family'] }}</p>
+          </div>
+          <div class="typography-block__definitions-item responsive-blocks-container">
+              <p>Weight: </p>
+              <p>{{ medias.default['font-weight'] }}</p>  
+          </div>
+          <div class="typography-block__definitions-item responsive-blocks-container">
+              <p>Case: </p>
+              <p>{{ medias.default['text-transform'] }}</p>  
+            </div>
+        </div>
+        <div class="buffer-x">
+          <div class="typography-block__divider"></div>
+        </div>
+        <div class="typography-block__parameters responsive-blocks-container">
+          <div class="typography-block__parameters-item">
+            <div class="spacer-4"></div>
+            <table class="typography-block__parameters-table">
+              <thead>
+                <tr>
+                  <th>
+                  </th>
+                  <th>
+                    D
+                  </th>
+                  <th>
+                    {% pictureSvgPng "img/icons/desktop.svg", "desktop", "32", "32" %}
+                  </th>
+                  <th>
+                    {% pictureSvgPng "img/icons/laptop.svg", "desktop", "32", "32" %}
+                  </th>
+                  <th>
+                    {% pictureSvgPng "img/icons/tablet.svg", "desktop", "32", "32" %}
+                  </th>
+                  <th>
+                    {% pictureSvgPng "img/icons/phone.svg", "desktop", "32", "32" %}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Font size</th>
+                  <td data-title="Default">
+                    {{ medias.default['font-size'] }}
+                  </td>
+                  <td data-title="Desktop">
+                    {{ medias.desktop['font-size'] or medias.default['font-size'] }}
+                  </td>
+                  <td data-title="Laptop">
+                    {{ medias.laptop['font-size'] or medias.default['font-size'] }}
+                  </td>
+                  <td data-title="Tablet">
+                    {{ medias.tablet['font-size'] or medias.default['font-size'] }}
+                  </td>
+                  <td data-title="Phone">
+                    {{ medias.phone['font-size'] or medias.default['font-size'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Line height</th>
+                  <td data-title="Default">
+                    {{ medias.default['line-height'] }}
+                  </td>
+                  <td data-title="Desktop">
+                    {{ medias.desktop['line-height'] or medias.default['line-height'] }}
+                  </td>
+                  <td data-title="Laptop">
+                    {{ medias.laptop['line-height'] or medias.default['line-height'] }}
+                  </td>
+                  <td data-title="Tablet">
+                    {{ medias.tablet['line-height'] or medias.default['line-height'] }}
+                  </td>
+                  <td data-title="Phone">
+                    {{ medias.phone['line-height'] or medias.default['line-height'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Word spacing</th>
+                  <td data-title="Default">
+                    {{ medias.default['word-spacing'] }}
+                  </td>
+                  <td data-title="Desktop">
+                    {{ medias.desktop['word-spacing'] or medias.default['word-spacing'] }}
+                  </td>
+                  <td data-title="Laptop">
+                    {{ medias.laptop['word-spacing'] or medias.default['word-spacing'] }}
+                  </td>
+                  <td data-title="Tablet">
+                    {{ medias.tablet['word-spacing'] or medias.default['word-spacing'] }}
+                  </td>
+                  <td data-title="Phone">
+                    {{ medias.phone['word-spacing'] or medias.default['word-spacing'] }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Letter spacing</th>
+                  <td data-title="Default">
+                    {{ medias.default['letter-spacing'] }}
+                  </td>
+                  <td data-title="Desktop">
+                    {{ medias.desktop['letter-spacing'] or medias.default['letter-spacing'] }}
+                  </td>
+                  <td data-title="Laptop">
+                    {{ medias.laptop['letter-spacing'] or medias.default['letter-spacing'] }}
+                  </td>
+                  <td data-title="Tablet">
+                    {{ medias.tablet['letter-spacing'] or medias.default['letter-spacing'] }}
+                  </td>
+                  <td data-title="Phone">
+                    {{ medias.phone['letter-spacing'] or medias.default['letter-spacing'] }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="spacer-4"></div>
+          </div>
+          <div class="typography-block__parameters-item">
+            <div class="typography-block__element">
+              <div class="{{ el.replace(regExp, '') }}">The quick brown fox jump</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endBuffer %}
+      {% endif %}
+      {% endfor %}
+    {% endContainer %}
+  </body>
+</html>

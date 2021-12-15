@@ -1,0 +1,81 @@
+.header__main-menu-burger.burger { /* Burger is not needed if it is not a mobile version and javascript is not connected. */
+  display: none;
+}
+
+@media (max-width: <%= menu.breakpoint - 1 %>px) {
+  .header__main-menu-container {
+    /* margin top 8 + 20 + 8  must be equal to element with max height in header */
+    margin: 36px 0 0 0;
+  }
+
+  .main-menu__item {
+    display: block;
+    float: none; /* Menu items will line up one above the other. */
+  }
+
+  .main-menu__link {
+    display: block;
+  }
+
+  .js .header__main-menu-container { /* Logo with js is static, and margin is no needed anymore. */
+    margin: 0;
+  }
+
+  .js .header__main-menu-burger.burger { /* Burger is not needed if it is not a mobile version and javascript is not connected. */
+    display: block;
+  }
+
+  .js .burger { /* And here the burger is already present. */
+    /* Coincidentally, the height of the button is equal to the height of the logo, and there is no need to center the button. But if it were not so, you need to add padding for the container. */
+    position: absolute;
+    top: <%= responsive.GAP %>px;
+    left: <%= responsive.GAP %>px;
+    padding: <%= responsive.GAP %>px;
+  }
+
+/* TODO: states for button. */
+
+  .js .burger__button {  /* Button is already present too. */
+    display: block; /* Here we put a display block for the button, otherwise, due to its default inline-block model, we will have 1 extra pixel from the parent. */
+    width: 30px;
+    height: 20px;
+    padding: 3px;
+    border: 0;
+    background-image: url("../../img/menu/burger.png");
+    background-position: center;
+    background-size: 24px 14px;
+    background-repeat: no-repeat;
+  }
+
+  .js .burger__button .burger__button-row {
+    display: none;
+  }
+
+  .js .burger__button--opened {
+    background-image: url("../../img/menu/cross.jpg");
+    background-position: center;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+  }
+
+  .js .header__logo {
+    /* The button has appeared, and it has absolute positioning. To prevent the logo from running over the button, we will return static positioning to it. */
+    position: static;
+    display: block;
+    width: 111px;
+    height: 36px;
+    margin: 0 auto;
+  }
+
+  .js .header__main-menu-container { /* Default class for menu (with js). */
+    display: none;
+  }
+
+  .js .header__main-menu-container--opened { /* Class for opened menu. */
+    display: block;
+  }
+
+  .js .header__social-links {
+    top: <%= responsive.GAP %>px;
+  }
+}

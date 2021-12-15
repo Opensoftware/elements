@@ -1,0 +1,56 @@
+// Create a menu button, add classes, attributes, inner invisible text and add it to the page.
+// TODO: check correct aria for button-action.
+// TODO: taborder for menu button.
+(function() {
+  if(document.addEventListener && window.isMediaQueriesSupported()) {
+    var mainMenuContainer = document.querySelector('.header__main-menu-container');
+    var burgerButtonContainer = document.querySelector('.header__main-menu-burger');
+    var burgerButton = document.createElement('button');
+    window.classFunction.addClass(burgerButton, 'burger__button');
+    burgerButton.setAttribute('id', 'burger-button');
+    burgerButton.setAttribute('aria-haspopup', 'true');
+    burgerButton.setAttribute('aria-expanded', 'false');
+    burgerButton.setAttribute('aria-label', 'Open menu');
+    burgerButton.setAttribute('style', 'background-image: url("data:image/svg+xml;base64,<%- include("../../../img/buttons/burger-base64.svg.ejs"); %>");');
+    burgerButtonContainer.appendChild(burgerButton);
+
+    var firstLink = mainMenuContainer.querySelector('.main-menu__link');
+
+    // TODO: chacge comment for aria atributes.
+    function toggleDropdownMenu() {
+      if(burgerButton.getAttribute('aria-expanded') === 'true') { // If menu is already opened (check 'aria-expanded' attribute).
+        burgerButton.setAttribute('aria-expanded', 'false');
+        burgerButton.setAttribute('aria-label', 'Open menu');
+        burgerButton.setAttribute('style', 'background-image: url("data:image/svg+xml;base64,<%- include("../../../img/buttons/burger-base64.svg.ejs"); %>");');
+        window.classFunction.removeClass(mainMenuContainer, 'header__main-menu-container--opened');
+        document.removeEventListener('click', window.emptySpaceClick);
+      } else {
+        burgerButton.setAttribute('aria-expanded', 'true');
+        burgerButton.setAttribute('aria-label', 'Close menu');
+        burgerButton.setAttribute('style', 'background-image: url("data:image/svg+xml;base64,<%- include("../../../img/buttons/cross-base64.svg.ejs"); %>");');
+        window.classFunction.addClass(mainMenuContainer, 'header__main-menu-container--opened');
+        document.addEventListener('click', window.emptySpaceClick);
+      }
+    };
+
+    burgerButton.addEventListener('click', toggleDropdownMenu);
+
+    // We handle not only a click, but also pressing Enter/Space.
+    burgerButton.addEventListener('keydown', function(event) {
+      if(event.keyCode === Keycode.SPACE || event.keyCode === Keycode.ENTER) {
+        event.preventDefault();
+        toggleDropdownMenu();
+
+        if(burgerButton.getAttribute('aria-expanded') === 'true') {
+          firstLink.focus();
+        } else {
+          burgerButton.focus();
+        }
+      }
+
+      if(event.keyCode === Keycode.ESC && burgerButton.getAttribute('aria-expanded') === 'true') {
+        window.closeDropdownMainMenu();
+      }
+    });
+  }
+})();

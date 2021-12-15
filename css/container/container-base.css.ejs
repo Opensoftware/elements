@@ -1,0 +1,47 @@
+<% let containerMaxWidth = responsive.MAX_WIDTH; %>
+<% let containerGap = responsive.GAP; %>
+
+<% if(typeof container !== "undefined" && container !== null && container.MAX_WIDTH && container.GAP) { %>
+  <% containerMaxWidth = container.MAX_WIDTH; %>
+  <% containerGap = container.GAP; %>
+<% } %>
+
+<% if(typeof(containerGap) === 'object' ) { %>
+  .container {
+    margin: 0 auto;
+    max-width: <%= containerMaxWidth - containerGap.default.x*2 %>px;
+    padding: <%= containerGap.default.y %>px <%= containerGap.default.x %>px;
+  }
+  
+  @media (max-width: <%= responsive.MEDIA.phone - 1 %>px) {
+    .container {
+      padding: <%= containerGap.phone.y %>px <%= containerGap.phone.x %>px;
+    }
+  }
+  
+  @media (min-width: <%= responsive.MEDIA.phone %>px) and (max-width: <%= responsive.MEDIA.tablet - 1 %>px) {
+    .container {
+      padding: <%= containerGap.tablet.y %>px <%= containerGap.tablet.x %>px;
+    }
+  }
+  
+  @media (min-width: <%= responsive.MEDIA.tablet %>px) and (max-width: <%= responsive.MEDIA.laptop - 1 %>px) {
+    .container {
+      padding: <%= containerGap.laptop.y %>px <%= containerGap.laptop.x %>px;
+    }
+  }
+  
+  @media (min-width: <%= responsive.MEDIA.laptop %>px) and (max-width: <%= responsive.MEDIA.desktop - 1 %>px) {
+    .container {
+      padding: <%= containerGap.desktop.y %>px <%= containerGap.desktop.x %>px;
+    }
+  }
+
+<% } else { %>
+  .container {
+    max-width: <%= containerMaxWidth - containerGap*2 %>px;
+    padding: <%= containerGap %>px;
+    margin: 0 auto;
+  }
+<% } %>
+

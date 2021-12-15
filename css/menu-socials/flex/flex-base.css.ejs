@@ -1,0 +1,69 @@
+@supports (display: flex) { /* https://developer.mozilla.org/en-US/docs/Web/CSS/@supports */
+  .main-menu::before,
+  .main-menu::after,
+  .header__social-links::before,
+  .header__social-links::after {
+    content: none;
+  }
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__main-menu-burger {
+    display: none;
+  }
+
+  .header__main-menu-container {
+    margin: 0;
+  }
+
+  .header__logo {
+    position: static; /* The flex property works, and you can return the elements to their positioning. */
+  }
+
+  .header__social-links {
+    position: static;
+  }
+
+  .main-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: <%= menu.breakpoint - 1 %>px) {
+    .header__container {
+      flex-wrap: wrap; /* Let's allow the transfer of elements so that on a small screen they become one under the other. */
+    }
+    
+    .header__main-menu-burger {
+      box-sizing: border-box;
+      width: 72px; /* The width of the burger container is equal to the width of the social media links. This will make aligning the flex parent work better. */
+    }
+
+    .js .header__main-menu-burger {
+      position: static;
+      order: 1; /* We change the arrangement of elements on the mobile version, and explicitly indicate the order to them. */
+    }
+
+    .header__logo {
+      order: 2;
+    }
+
+    .header__social-links {
+      order: 3;
+    }
+
+    .header__main-menu-container {
+      width: 100%; /* The menu becomes a dropdown and is transferred to a new row. Should fill the entire screen width. */
+      margin: 0;
+      order: 4;
+    }
+
+    .main-menu {
+      flex-direction: column;
+    }
+  }
+}

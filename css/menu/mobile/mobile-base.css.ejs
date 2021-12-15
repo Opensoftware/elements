@@ -1,0 +1,57 @@
+.header__main-menu-burger.burger { /* Burger is not needed if it is not a mobile version and javascript is not connected. */
+  display: none;
+}
+
+@media (max-width: <%= menu.breakpoint - 1 %>px) {
+  .header__logo {
+    position: static;
+  }
+
+  .header__main-menu-container {
+    margin: 0;
+    float: none;
+  }
+
+  .main-menu__item {
+    display: block;
+    float: none; /* Menu items will line up one above the other. */
+    padding: 0;
+  }
+
+  .main-menu__link {
+    display: block;
+  }
+
+  .js .header__main-menu-burger.burger { /* Burger is not needed if it is not a mobile version and javascript is not connected. */
+    display: block;
+  }
+
+  .js .header__logo {
+    margin-right: auto;
+  }
+
+  .js .burger { /* And here the burger is already present. */
+    /* Coincidentally, the height of the button is equal to the height of the logo, and there is no need to center the button. But if it were not so, you need to add padding for the container. */
+    position: absolute;
+    top: 8px;
+    right: <%= responsive.GAP %>px;
+  }
+
+/* TODO: states for button. */
+
+  .js .burger__button {  /* Button is already present too. */
+    display: block; /* Here we put a display block for the button, otherwise, due to its default inline-block model, we will have 1 extra pixel from the parent. */
+  }
+
+  .js .header__main-menu-container { /* Default class for menu (with js). */
+    display: none;
+  }
+
+  .js .header__main-menu-container--opened { /* Class for opened menu. */
+    display: block;
+  }
+
+  .js .header__social-links {
+    top: 8px;
+  }
+}

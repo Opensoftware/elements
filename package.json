@@ -1,0 +1,26 @@
+{
+  "name": "elements",
+  "version": "0.0.1",
+  "description": "softevol elements for 11ty",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/softevol/elements.git"
+  },
+  "author": "softevol.com",
+  "license": "softevol",
+  "bugs": {
+    "url": "https://gitlab.com/softevol/elements/issues"
+  },
+  "homepage": "https://gitlab.com/softevol/elements#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0-beta.8",
+    "@11ty/eleventy-img": "^1.0.0"
+  }
+}

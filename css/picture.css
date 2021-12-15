@@ -1,0 +1,7 @@
+/* prevent horizontal scrolling, when the scrollbar appears */
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

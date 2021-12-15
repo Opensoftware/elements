@@ -1,0 +1,33 @@
+.responsive-buffer {
+  padding: <%= responsive.RESPONSIVE_GAP.default.y %>px <%= responsive.RESPONSIVE_GAP.default.x %>px;
+}
+
+@media (max-width: <%= responsive.MEDIA.phone - 1 %>px) {
+  .responsive-buffer {
+    padding: <%= responsive.RESPONSIVE_GAP.phone.y %>px <%= responsive.RESPONSIVE_GAP.phone.x %>px;
+  }
+}
+
+@media (min-width: <%= responsive.MEDIA.phone %>px) and (max-width: <%= responsive.MEDIA.tablet - 1 %>px) {
+  .responsive-buffer {
+    padding: <%= responsive.RESPONSIVE_GAP.tablet.y %>px <%= responsive.RESPONSIVE_GAP.tablet.x %>px;
+  }
+}
+
+@media (min-width: <%= responsive.MEDIA.tablet %>px) and (max-width: <%= responsive.MEDIA.laptop - 1 %>px) {
+  .responsive-buffer {
+    padding: <%= responsive.RESPONSIVE_GAP.laptop.y %>px <%= responsive.RESPONSIVE_GAP.laptop.x %>px;
+  }
+}
+
+@media (min-width: <%= responsive.MEDIA.laptop %>px) and (max-width: <%= responsive.MEDIA.desktop - 1 %>px) {
+  .responsive-buffer {
+    padding: <%= responsive.RESPONSIVE_GAP.desktop.y %>px <%= responsive.RESPONSIVE_GAP.desktop.x %>px;
+  }
+}
+
+@media (min-width: <%= responsive.MEDIA.desktop %>px) {
+  .responsive-buffer {
+    padding: <%= responsive.RESPONSIVE_GAP.default.y %>px <%= responsive.RESPONSIVE_GAP.default.x %>px;
+  }
+}
