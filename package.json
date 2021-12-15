@@ -19,7 +19,7 @@
     "url": "https://gitlab.com/softevol/elements/issues"
   },
   "homepage": "https://gitlab.com/softevol/elements#readme",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^1.0.0-beta.8",
     "@11ty/eleventy-img": "^1.0.0"
   }
