@@ -1,0 +1,18 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% include 'partials/favicon.njk' %}
+    <link rel="stylesheet" href="/css/container.css">
+    <link rel="stylesheet" href="/css/responsive-blocks.css">
+    <link rel="stylesheet" href="/css/buffer.css">
+    <link rel="stylesheet" href="/css/post-card.css">
+    <link rel="stylesheet" href="/css/typography.css">
+  </head>
+  <body>
+    <h1>Hello 11ty!</h1>
+    {{ content | safe }}
+  </body>
+</html>

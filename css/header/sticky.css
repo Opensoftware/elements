@@ -1,0 +1,36 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.header--sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+}
+
+.header--sticky .main-menu {
+  background-color: #FFFFFF;
+}
+
+@media (max-width: 904px) {
+  .header--sticky .header__main-menu-container--opened {
+    overflow-y: auto;
+  }
+}
+
+.header--sticky ~ * .anchor-target {
+  position: relative;
+}
+
+.header--sticky ~ * .anchor-target__indent-marker {
+  position: absolute;
+  top: -57px;
+}
+
+@media (max-width: 904px) {
+  .header--sticky ~ * .anchor-target__indent-marker {
+    top: -56px;
+  }
+}

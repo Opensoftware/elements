@@ -1,0 +1,56 @@
+<% for(let el in typography) { %>
+  <% let selector = el; %>
+  <% if(el === 'h1' || el === 'h2' || el === 'h3' || el === 'h4' || el === 'h5' || el === 'h6' || el === 'p') { %>
+    <%  selector = `${el}, .${el}` %>
+  <% } %>
+
+  <% for(let media in typography[el]) { %>
+    <% if(media == 'default') { %>
+      <%= selector %> {
+      <% for(let property in typography[el][media]) { %>
+        <%= property %> : <%= typography[el][media][property] %>;
+      <% } %>
+      }
+    <% } %>
+
+    <% if(media == 'desktop' && Object.keys(typography[el][media]).length > 0) { %>
+      @media (min-width: <%= responsive.MEDIA.laptop %>px) and (max-width: <%= responsive.MEDIA.desktop - 1 %>px) {
+        <%= selector %> {
+        <% for(let property in typography[el][media]) { %>
+          <%= property %> : <%= typography[el][media][property] %>;
+        <% } %>
+        }
+      }
+    <% } %>
+
+    <% if(media == 'laptop' && Object.keys(typography[el][media]).length > 0) { %>
+      @media (min-width: <%= responsive.MEDIA.tablet %>px) and (max-width: <%= responsive.MEDIA.laptop - 1 %>px) {
+        <%= selector %> {
+        <% for(let property in typography[el][media]) { %>
+          <%= property %> : <%= typography[el][media][property] %>;
+        <% } %>
+        }
+      }
+    <% } %>
+
+    <% if(media == 'tablet' && Object.keys(typography[el][media]).length > 0) { %>
+      @media (min-width: <%= responsive.MEDIA.phone %>px) and (max-width: <%= responsive.MEDIA.tablet - 1 %>px) {
+        <%= selector %> {
+        <% for(let property in typography[el][media]) { %>
+          <%= property %> : <%= typography[el][media][property] %>;
+        <% } %>
+        }
+      }
+    <% } %>
+
+    <% if(media == 'phone' && Object.keys(typography[el][media]).length > 0) { %>
+      @media (max-width: <%= responsive.MEDIA.phone %>px) {
+        <%= selector %> {
+        <% for(let property in typography[el][media]) { %>
+          <%= property %> : <%= typography[el][media][property] %>;
+        <% } %>
+        }
+      }
+    <% } %>
+  <% } %>
+<% } %>

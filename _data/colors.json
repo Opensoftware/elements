@@ -1,0 +1,56 @@
+{
+  "Primary" : {
+    "100": {
+      "color" : "#EEF6FF",
+      "label" : "#000000"
+    },
+    "200": {
+      "color" : "#D8EBFF",
+      "label" : "#000000"
+    },
+    "300": {
+      "color" : "#BBDDFF",
+      "label" : "#000000"
+    },
+    "500": {
+      "color" : "#2962FF",
+      "label" : "#FFFFFF"
+    },
+    "700": {
+      "color" : "#0E4D8D",
+      "label" : "#FFFFFF"
+    }
+  },
+  "Background" : {
+    "color" : "#F7F9FA",
+    "label" : "#000000"
+  },
+  "Surface" : {
+    "color" : "#FFFFFF",
+    "label" : "#000000"
+  },
+  "Border" : {
+    "color" : "#F0F0F0",
+    "label" : "#000000"
+  },
+  "Error" : {
+    "color" : "#A4262C",
+    "label" : "#FFFFFF"
+  },
+  "On Primary" : {
+    "color" : "#FFFFFF",
+    "label" : "#000000"
+  },
+  "On Background" : {
+    "color" : "#0B2239",
+    "label" : "#FFFFFF"
+  },
+  "On Surface" : {
+    "color" : "#0B2239",
+    "label" : "#FFFFFF"
+  },
+  "On Error" : {
+    "color" : "#FFFFFF",
+    "label" : "#000000"
+  }
+}

@@ -1,0 +1,64 @@
+.typography-block {
+  border: 1px solid <%= colors.Border.color %>;
+  padding: 8px;
+  background-color: <%= colors.Surface.color %>;
+}
+
+.buffer-x {
+  padding: 0 8px;
+}
+
+.typography-block__definitions-item {
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .typography-block__definitions-item {
+    width: auto;
+  }  
+}
+
+.typography-block__definitions-item p {
+  float: left;
+}
+
+.typography-block__divider {
+  width: 100%;
+  height: 1px;
+  background-color:  <%= colors.Border.color %>;
+}
+
+.typography-block__parameters {
+  flex-wrap: wrap;
+}
+
+.typography-block__parameters-item {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 600px) {
+  .typography-block__parameters {
+    flex-wrap: nowrap;
+  }
+  
+  .typography-block__parameters-item {
+    width: auto;
+    float: left;
+  }
+}
+
+.typography-block__parameters-table th,
+.typography-block__parameters-table td {
+  padding: 4px 8px;
+}
+
+.typography-block__parameters-table th {
+  font-weight: 400;
+  text-align: left;
+}
+
+.typography-block__parameters-item .typography-block__element * {
+  word-wrap: break-word;
+}

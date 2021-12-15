@@ -1,0 +1,46 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/container.css">
+    <link rel="stylesheet" href="/css/responsive-blocks.css">
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/buffer.css">
+    <link rel="stylesheet" href="/css/spacers.css">
+    <link rel="stylesheet" href="/css/design-system/color-block.css">
+    <link rel="stylesheet" href="/css/typography.css">
+  </head>
+  <body class="design-system">
+  {% container responsive %}
+    <h1 class="design-system__h1">{{ title }}</h1>
+    {% for title, colorsKit in colors %}
+      <h2 class="design-system__h2">{{ title }}</h2>
+      <div class="responsive-blocks-container">
+
+      {% for theme, param in colorsKit %}
+
+        {% if(param.color or param.label) %}
+          {% column_100_50_33_33_33 %}
+          {% buffer responsive %}
+          {% colorBlock theme, param.color, param.label %}
+          {% endBuffer %}
+          {% endColumn %}
+        {% elif theme == 'color' %}
+          {% set nextColor = colorsKit[theme] %}
+        {% elif theme == 'label' %}
+          {% column_100_50_33_33_33 %}
+          {% buffer responsive %}
+          {% colorBlock title, nextColor, colorsKit[theme] %}
+          {% endBuffer %}
+          {% endColumn %}
+        {% endif %}
+
+      {% endfor %}
+      </div>
+      <div class="spacer-16"></div>
+    {% endfor %}
+  {% endContainer %}
+  </body>
+</html>

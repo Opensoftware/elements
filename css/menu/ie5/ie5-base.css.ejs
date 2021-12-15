@@ -1,0 +1,69 @@
+.header {
+  border-bottom: 1px solid #000000;
+}
+
+/* logo */
+
+.header__logo {
+  position: absolute;
+  top: 11px; /* .header__container padding not calculated */
+  left: <%= responsive.GAP %>px;
+}
+
+.logo a {
+  display: block;
+  padding: <%= responsive.GAP %>px;
+}
+
+.logo a img {
+  display: block; /* normalize geometry img inside a */
+}
+
+/* main-menu */
+
+.header__main-menu-container {
+  float: right;
+  margin-left: 110px; /* spaces for absolutely positioned logo/socials. */
+}
+
+.main-menu {
+  margin: 0;
+  padding: <%= responsive.GAP %>px 0;
+}
+
+.main-menu__item {
+  padding: 0 <%= responsive.GAP %>px;;
+  display: block;
+  float: left;
+}
+
+.main-menu__link {
+  white-space: nowrap;
+}
+
+/* social */
+
+.header__social-links { /* TODO maybe rename to social links */
+  position: absolute;
+  top: 11px;
+  right: <%= responsive.GAP %>px; 
+  padding: 0px;
+}
+
+.main-menu:before,
+.main-menu:after,
+.header__container:before,
+.header__container:after { 
+  content: "";
+  display: table; 
+}
+
+.main-menu:after,
+.header__container:after {
+  clear: both; 
+}
+
+.main-menu,
+.header__container { 
+  zoom: 1; 
+}

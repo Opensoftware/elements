@@ -1,0 +1,25 @@
+---
+  permalink: css/card.css
+---
+
+.card {
+  padding: <%= card.PADDING %>px;
+}
+
+.card__inner {
+  border: <%= card.BORDER %>px solid #EDEDED;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.card__title {
+  margin: 0;
+  padding: <%= card.PADDING*2 %>px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0B2239;
+  border-top: <%= card.BORDER %>px solid #EDEDED;
+  background-color: #FFFFFF;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ title }}</title>
+    {% include 'partials/favicon.njk' %}
+    <!-- Menu -->
+    <link rel="stylesheet" href="/css/menu/ie5.css">
+    <link rel="stylesheet" href="/css/menu/ie7.css">
+    <!--[if IE 5]>
+    <link rel="stylesheet" href="/css/menu/ie5-fix.css">
+    <![endif]-->
+    <link rel="stylesheet" href="/css/menu/ie8.css">
+    <link rel="stylesheet" href="/css/menu/mobile.css">
+    <link rel="stylesheet" href="/css/menu/flex.css">
+
+    <script>
+      (function() {
+        var html = document.getElementsByTagName('html')[0];
+
+        if(html) {
+          html.className += html.className ? " js" : "js";
+        }
+
+        if (typeof SVGRect !== "undefined") {
+          html.className +=html.className ? " svg" : "svg";
+          window.svg = true;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    {% include 'partials/header.njk' %}
+    <div class="container">
+      <main>
+        {{ content | safe }}
+      </main>
+    </div>
+  </body>
+  <!-- Header -->
+  <script src="/js/utils/class-function.js"></script>
+  <script src="/js/utils/window-sizes.js"></script>
+  <script src="/js/utils/is-media-queries-supported.js"></script>
+  <script src="/js/utils/support-css.js"></script>
+  <script src="/js/utils/keycodes.js"></script>
+  <script src="/js/menu/menu.js"></script>
+  <script src="/js/menu/mobile.js"></script>
+  <script src="/js/menu/anchor-links.js"></script>
+  <script src="/js/menu/close-dropdown-main-menu.js"></script>
+  <script src="/js/menu/empty-space-click.js"></script>
+  <script src="/js/menu/keyboard-support.js"></script>
+</html>
